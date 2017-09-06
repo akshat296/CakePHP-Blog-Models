@@ -1,0 +1,12 @@
+
+li  {
+    display: inline;
+    width: 30px;
+ 
+}
+a.add{
+    display:inline;
+    float :right;
+    padding:10px;
+    color:white;
+}
