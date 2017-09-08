@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\Log\Log;
 
 class UsersController extends AppController
 {
@@ -19,15 +20,20 @@ class UsersController extends AppController
     }
   public function login()
     {
+        
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();
           //  var_dump( $this->Users->get($this->Auth->user('username')));
-            var_dump($this->Auth->identify());
+           
+            Log::write('debug',$user);
             if ($user) {
                 $this->Auth->setUser($user);
+              
                 return $this->redirect(['controller' => 'Articles', 'action' => 'index']);
+                
 
             }
+            
             $this->Flash->error(__('Invalid username or password, try again'));
         }
     }

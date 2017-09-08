@@ -51,12 +51,14 @@ class AppController extends Controller
                 'action' => 'display',
                 'home'
             ]
-        ]);
+       , 'authorize' => array('Controller')            ]);
         $this->viewBuilder()->layout('layout');
         
     }
      public function isAuthorized($user = null)
     {
+        debug ("hello");
+       exit;
         // Any registered user can access public functions
         if (!$this->request->getParam('prefix')) {
             return true;
